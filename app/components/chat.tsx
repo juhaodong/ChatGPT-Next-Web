@@ -52,6 +52,7 @@ import styles from "./home.module.scss";
 import chatStyle from "./chat.module.scss";
 
 import { Input, Modal, showModal } from "./ui-lib";
+import Image from "next/image";
 
 const Markdown = dynamic(
   async () => memo((await import("./markdown")).Markdown),
@@ -63,14 +64,15 @@ const Markdown = dynamic(
 const Emoji = dynamic(async () => (await import("emoji-picker-react")).Emoji, {
   loading: () => <LoadingIcon />,
 });
+import Laughing from "../icons/laughing.png";
 
 export function Avatar(props: { role: Message["role"] }) {
   const config = useChatStore((state) => state.config);
 
   if (props.role !== "user") {
     return (
-      <div className="no-dark">
-        <BotIcon className={styles["user-avtar"]} />
+      <div className={" no-dark " + styles["user-avtar"]}>
+        <Image src={Laughing} alt="Shiba Inu" width={18} />
       </div>
     );
   }
@@ -357,6 +359,7 @@ export function ChatActions(props: {
 
   // switch themes
   const theme = chatStore.config.theme;
+
   function nextTheme() {
     const themes = [Theme.Auto, Theme.Light, Theme.Dark];
     const themeIndex = themes.indexOf(theme);

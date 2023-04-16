@@ -501,7 +501,7 @@ export function Settings(props: { closeSettings: () => void }) {
             <InputRange
               value={config.modelConfig.temperature?.toFixed(1)}
               min="0"
-              max="2"
+              max="1"
               step="0.1"
               onChange={(e) => {
                 updateConfig(

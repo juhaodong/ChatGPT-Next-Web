@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 require("../polyfill");
 
 import { useState, useEffect, useRef } from "react";
@@ -24,6 +26,7 @@ import { Chat } from "./chat";
 import dynamic from "next/dynamic";
 import { REPO_URL } from "../constant";
 import { ErrorBoundary } from "./error";
+import Laughing from "../icons/laughing.png";
 
 export function Loading(props: { noLogo?: boolean }) {
   return (
@@ -167,12 +170,10 @@ function _Home() {
         className={styles.sidebar + ` ${showSideBar && styles["sidebar-show"]}`}
       >
         <div className={styles["sidebar-header"]}>
-          <div className={styles["sidebar-title"]}>ChatGPT Next</div>
-          <div className={styles["sidebar-sub-title"]}>
-            Build your own AI assistant.
-          </div>
+          <div className={styles["sidebar-title"]}>小柴（柴柴GPT）</div>
+          <div className={styles["sidebar-sub-title"]}>随便问我点啥吧</div>
           <div className={styles["sidebar-logo"]}>
-            <ChatGptIcon />
+            <Image width={36} src={Laughing} alt="Shiba Inu" />
           </div>
         </div>
 
